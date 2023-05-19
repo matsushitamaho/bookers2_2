@@ -1,0 +1,28 @@
+<hi>Books</hi>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@user.id) do %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book_path(book.id) do %>
+            <%= book.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= book.body %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
