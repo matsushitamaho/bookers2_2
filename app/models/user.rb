@@ -13,5 +13,5 @@ class User < ApplicationRecord
     length:{maximum:50}
     
   has_many :books,dependent: :destroy
-  
+  attachment :profile_image
 end
