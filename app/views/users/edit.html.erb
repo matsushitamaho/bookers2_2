@@ -1,5 +1,5 @@
 <h2>User info</h2>
-
+<%= render "users/error_message" %>
 <%= form_with model:@user,local:true do |f| %>
 
 <div>
@@ -9,7 +9,7 @@
 
 <div>
   <label for="inputImage">Image</label>
-  <%= f.attachment_field :profile_image,placeholder:"ファイルを選択" %>
+  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
 </div>
 
 <div>
