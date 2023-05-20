@@ -12,11 +12,11 @@
 
           <div>
             <label for="inputImage">Image</label>
-            <%= attachment_image_tag @user,:profile_image,:fill,60,60,fallback:"no_image.jpg" %>
+            <%= image_tag book.user.get_profile_image(100,100) %>
             <%= f.file_field :profile_image, placeholder: "ファイル選択", class:"py-3" %>
           </div>
 
-　　　　　<div class="form-group py-3">
+          <div class="form-group py-3">
             <label for="inputInt">Introduction</label>
             <%= f.text_field:introduction,autofocus:true,id:"inputInt", class:"form-control" %>
           </div>
