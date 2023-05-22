@@ -5,9 +5,9 @@
       <%= render "users/userinfo",user:@user %>
       <%= render "books/books",book:@book %>
     </div>
-    
+
     <div class="col-md-8 offset-md-1">
-      <hi>Books</hi>
+      <h1>Books</h1>
         <table class="table">
           <thead>
             <tr>
@@ -20,16 +20,18 @@
             <tbody>
               <tr>
                 <td>
-                  <%= link_to user_path(book.user.id) do %>
-                    <%= image_tag book.user.get_profile_image(100,100) %>
-                <% end %>
+                  <% if @user.profile_image.present? %>
+                    <%= image_tag book.user.profile_image, size: '100x100' %>
+                  <% else %>
+                    <p>NO IMAGE</p>
+                  <% end %>
                 </td>
                 <td>
                   <%= link_to book_path(book.id) do %>
                     <%= book.title %>
                   <% end %>
                 </td>
-                
+
                 <td>
                   <%= book.body %>
                 </td>

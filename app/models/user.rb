@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :profile_image, ImageUploader
+  # mount_uploader :profile_image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,16 +14,18 @@ class User < ApplicationRecord
     length:{maximum:50}
 
   has_many :books,dependent: :destroy
-  mount_uploader :image, ImageUploader
+ # mount_uploader :image, ImageUploader
 
-  def introduction
-    self[:introduction]
-  end
-
+  
+has_one_attached :profile_image
   def get_profile_image(width, height)
-    profile_image.url(:thumb)
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    #profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  attribute :introduction, :text
-  mount_uploader :profile_image,ImageUploader
+  #attribute :introduction, :text
+  #mount_uploader :profile_image,ImageUploader
 end
