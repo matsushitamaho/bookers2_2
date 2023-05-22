@@ -17,7 +17,7 @@
           <button class="navbar-toggler"type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          
+
     <% if user_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav  ml-auto">
@@ -52,10 +52,10 @@
       </il>
       <li class="nav-item">
         <i class="fas fa-user-plus" style="color: #ffffff;"></i>
-        <%= link_to "Sing Up", new_user_registration_path, class:"nav-link text-white" %>
+        <%= link_to "Sing up", new_user_registration_path, class:"nav-link text-white" %>
       </li>
       <li class="nav-item">
-        <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i>
+        <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
         <%= link_to "Log in", new_user_session_path, class:"nav-link text-white" %>
       </li>
       </ul>
@@ -64,7 +64,7 @@
   </header>
     <span class="text-success"><%= render 'layouts/message' %></span>
     <%= yield %>
-    
+
     <footer>
       <div class="container mt-5">
         <div class="row">
