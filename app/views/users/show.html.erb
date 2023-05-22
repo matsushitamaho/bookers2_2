@@ -21,7 +21,7 @@
               <td>
                 <%= link_to user_path(@user.id) do %>
                   <% if @user.profile_image.present? %>
-                    <%= image_tag @user.get_profile_image(50,50) %>
+                    <%= image_tag @user.profile_image, size: '100x100' %>
                   <% else %>
                     <p>NO IMAGE</p>
                   <% end %>
